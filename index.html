@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Steinchenfans – LEGO Sets</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    #search {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      font-size: 16px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .card img {
+      width: 100%;
+      height: auto; /* 👉 Höhe passt sich an */
+      max-height: 250px; /* 👉 optional Begrenzung */
+      object-fit: contain; /* 👉 GANZES Bild sichtbar */
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .title {
+      font-size: 18px;
+      font-weight: bold;
+      margin: 10px 0;
+    }
+
+    .price {
+      color: green;
+      font-weight: bold;
+    }
+
+    button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      border: none;
+      background: #2e7d32;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      width: auto;
+    }
+
+    button:hover {
+      background: #1b5e20;
+    }
+
+    .email {
+      margin-top: 10px;
+      font-size: 14px;
+    }
+
+    /* 🔥 LIGHTBOX */
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: white;
+      font-size: 30px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>LEGO Sets – Steinchenfans</h1>
+
+<input type="text" id="search" placeholder="Suche nach Sets...">
+
+<div class="grid" id="setList">
+
+  <!-- Set 70352 -->
+  <div class="card" data-name="Jestros Hauptquartier 70352">
+    
+    <img src="images/70352.jpg" onclick="openLightbox(this.src)">
+
+    <div class="title">70352 Jestros Hauptquartier</div>
+    <div>Gebraucht / mit Anleitung</div>
+    <div class="price">Preis: 80 €</div>
+
+    <button onclick="sendMail('70352 Jestros Hauptquartier')">
+      Interesse anfragen
+    </button>
+
+    <div class="email">
+      oder direkt per Mail:<br>
+      <a href="mailto:info@steinchenfans.de">info@steinchenfans.de</a>
+    </div>
+  </div>
+
+  <!-- Set 7249 -->
+  <div class="card" data-name="7249 Kran Mobile Crane">
+
+  <img src="images/7249.jpg" onclick="openLightbox(this.src)">
+
+  <div class="title">7249 Kran</div>
+  <div>Gebraucht / mit Anleitung</div>
+  <div class="price">Preis: 45 €</div>
+
+  <button onclick="sendMail('7249 Kran')">
+    Interesse anfragen
+  </button>
+
+  <div class="email">
+    oder direkt per Mail:<br>
+    <a href="mailto:info@steinchenfans.de">info@steinchenfans.de</a>
+  </div>
+ </div>
+
+ <!-- Set 8435 -->
+ <div class="card" data-name="8435 Technic Bagger">
+
+  <img src="images/8435.jpg" onclick="openLightbox(this.src)">
+
+  <div class="title">8435 Technic Bagger</div>
+  <div>Gebraucht / mit Anleitung</div>
+  <div class="price">Preis: 35 €</div>
+
+  <button onclick="sendMail('8435 Technic Bagger')">
+    Interesse anfragen
+  </button>
+
+  <div class="email">
+    oder direkt per Mail:<br>
+    <a href="mailto:info@steinchenfans.de">info@steinchenfans.de</a>
+  </div>
+ </div>
+
+ <!-- Set 6397 -->
+<div class="card" data-name="6397 Gas N Wash Express">
+
+  <img src="images/6397.jpg" onclick="openLightbox(this.src)">
+
+  <div class="title">6397 Flughafen Shuttle</div>
+  <div>Gebraucht / mit Anleitung</div>
+  <div class="price">Preis: 60 €</div>
+
+  <button onclick="sendMail('6397 Gas N Wash Express')">
+    Interesse anfragen
+  </button>
+
+  <div class="email">
+    oder direkt per Mail:<br>
+    <a href="mailto:info@steinchenfans.de">info@steinchenfans.de</a>
+  </div>
+</div>
+
+<!-- Set 60109 -->
+<div class="card" data-name="60109 Feuerwehr Boot Fire Boat">
+  <img src="images/60109.jpg" onclick="openLightbox(this.src)">
+  <div class="title">60109 Feuerwehr Boot</div>
+  <div>Mit Anleitung</div>
+  <div class="price">Preis: 65 €</div>
+  <button onclick="sendMail('60109 Feuerwehr Boot')">Interesse anfragen</button>
+  <div class="email">oder direkt per Mail:<br><a href="mailto:info@steinchenfans.de">info@steinchenfans.de</a></div>
+</div>
+
+<!-- Set 6339 -->
+<div class="card" data-name="6339 Shuttle Launch Pad Space">
+  <img src="images/6339.jpg" onclick="openLightbox(this.src)">
+  <div class="title">6339 Shuttle Launch Pad</div>
+  <div>Mit Anleitung</div>
+  <div class="price">Preis: 110 €</div>
+  <button onclick="sendMail('6339 Shuttle Launch Pad')">Interesse anfragen</button>
+  <div class="email">oder direkt per Mail:<br><a href="mailto:info@steinchenfans.de">info@steinchenfans.de</a></div>
+</div>
+
+<!-- Set 6552 -->
+<div class="card" data-name="6552 Rocky River Retreat">
+  <img src="images/6552.jpg" onclick="openLightbox(this.src)">
+  <div class="title">6552 Rocky River Retreat</div>
+  <div>Mit Anleitung</div>
+  <div class="price">Preis: 45 €</div>
+  <button onclick="sendMail('6552 Rocky River Retreat')">Interesse anfragen</button>
+  <div class="email">oder direkt per Mail:<br><a href="mailto:info@steinchenfans.de">info@steinchenfans.de</a></div>
+</div>
+
+<!-- Set 6559 -->
+<div class="card" data-name="6559 Deep Sea Predator">
+  <img src="images/6559.jpg" onclick="openLightbox(this.src)">
+  <div class="title">6559 Deep Sea Predator</div>
+  <div>Mit Anleitung</div>
+  <div class="price">Preis: 55 €</div>
+  <button onclick="sendMail('6559 Deep Sea Predator')">Interesse anfragen</button>
+  <div class="email">oder direkt per Mail:<br><a href="mailto:info@steinchenfans.de">info@steinchenfans.de</a></div>
+</div>
+
+<!-- Set 5600 -->
+<div class="card" data-name="5600 RC Car">
+  <img src="images/5600.jpg" onclick="openLightbox(this.src)">
+  <div class="title">5600 RC Car</div>
+  <div>Mit Anleitung</div>
+  <div class="price">Preis: 50 €</div>
+  <button onclick="sendMail('5600 RC Car')">Interesse anfragen</button>
+  <div class="email">oder direkt per Mail:<br><a href="mailto:info@steinchenfans.de">info@steinchenfans.de</a></div>
+</div>
+
+<!-- Set 41058 -->
+<div class="card" data-name="41058 Heartlake Einkaufszentrum Friends">
+  <img src="images/41058.jpg" onclick="openLightbox(this.src)">
+  <div class="title">41058 Heartlake Einkaufszentrum</div>
+  <div>Mit Anleitung</div>
+  <div class="price">Preis: 59 €</div>
+  <button onclick="sendMail('41058 Heartlake Einkaufszentrum')">Interesse anfragen</button>
+  <div class="email">oder direkt per Mail:<br><a href="mailto:info@steinchenfans.de">info@steinchenfans.de</a></div>
+</div>
+
+<!-- Set 6560 -->
+<div class="card" data-name="6560 Diving Expedition">
+  <img src="images/6560.jpg" onclick="openLightbox(this.src)">
+  <div class="title">6560 Diving Expedition</div>
+  <div>Mit Anleitung</div>
+  <div class="price">Preis: 110 €</div>
+  <button onclick="sendMail('6560 Diving Expedition')">Interesse anfragen</button>
+  <div class="email">oder direkt per Mail:<br><a href="mailto:info@steinchenfans.de">info@steinchenfans.de</a></div>
+</div>
+
+<!-- Set 6378 -->
+<div class="card" data-name="6378 Tankstelle Service Station">
+  <img src="images/6378.jpg" onclick="openLightbox(this.src)">
+  <div class="title">6378 Tankstelle</div>
+  <div>Mit Anleitung</div>
+  <div class="price">Preis: 75 €</div>
+  <button onclick="sendMail('6378 Tankstelle')">Interesse anfragen</button>
+  <div class="email">oder direkt per Mail:<br><a href="mailto:info@steinchenfans.de">info@steinchenfans.de</a></div>
+</div>
+
+<!-- Set 60050 -->
+<div class="card" data-name="60050 Bahnhof Train Station">
+  <img src="images/60050.jpg" onclick="openLightbox(this.src)">
+  <div class="title">60050 Bahnhof</div>
+  <div>Mit Anleitung</div>
+  <div class="price">Preis: 45 €</div>
+  <button onclick="sendMail('60050 Bahnhof')">Interesse anfragen</button>
+  <div class="email">oder direkt per Mail:<br><a href="mailto:info@steinchenfans.de">info@steinchenfans.de</a></div>
+</div>
+
+<!-- Set 7905 -->
+<div class="card" data-name="7905 Building Crane Baukran">
+  <img src="images/7905.jpg" onclick="openLightbox(this.src)">
+  <div class="title">7905 Baukran</div>
+  <div>Mit Anleitung</div>
+  <div class="price">Preis: 110 €</div>
+  <button onclick="sendMail('7905 Baukran')">Interesse anfragen</button>
+  <div class="email">oder direkt per Mail:<br><a href="mailto:info@steinchenfans.de">info@steinchenfans.de</a></div>
+</div>
+
+<!-- Set 6349 -->
+<div class="card" data-name="6349 Holiday Villa Ferienhaus">
+  <img src="images/6349.jpg" onclick="openLightbox(this.src)">
+  <div class="title">6349 Ferienhaus</div>
+  <div>Mit Anleitung</div>
+  <div class="price">Preis: 40 €</div>
+  <button onclick="sendMail('6349 Ferienhaus')">Interesse anfragen</button>
+  <div class="email">oder direkt per Mail:<br><a href="mailto:info@steinchenfans.de">info@steinchenfans.de</a></div>
+</div>
+
+<!-- Set 41101 -->
+<div class="card" data-name="41101 Heartlake Grand Hotel Friends">
+  <img src="images/41101.jpg" onclick="openLightbox(this.src)">
+  <div class="title">41101 Heartlake Grand Hotel</div>
+  <div>Mit Anleitung</div>
+  <div class="price">Preis: 80 €</div>
+  <button onclick="sendMail('41101 Heartlake Grand Hotel')">Interesse anfragen</button>
+  <div class="email">oder direkt per Mail:<br><a href="mailto:info@steinchenfans.de">info@steinchenfans.de</a></div>
+</div>
+
+<!-- Set 70725 -->
+<div class="card" data-name="70725 Nindroid Mech Dragon Ninjago">
+  <img src="images/70725.jpg" onclick="openLightbox(this.src)">
+  <div class="title">70725 Nindroid Mech Dragon</div>
+  <div>Mit Anleitung</div>
+  <div class="price">Preis: 60 €</div>
+  <button onclick="sendMail('70725 Nindroid Mech Dragon')">Interesse anfragen</button>
+  <div class="email">oder direkt per Mail:<br><a href="mailto:info@steinchenfans.de">info@steinchenfans.de</a></div>
+</div>
+
+<!-- Set 4589 -->
+<div class="card" data-name="4589 RC Nitro Flash">
+  <img src="images/4589.jpg" onclick="openLightbox(this.src)">
+  <div class="title">4589 RC Nitro Flash</div>
+  <div>Mit Anleitung</div>
+  <div class="price">Preis: XXX €</div>
+  <button onclick="sendMail('4589 RC Nitro Flash')">Interesse anfragen</button>
+  <div class="email">oder direkt per Mail:<br><a href="mailto:info@steinchenfans.de">info@steinchenfans.de</a></div>
+</div>
+
+<!-- Set 7896 -->
+<div class="card" data-name="7896 RC Schienen">
+  <img src="images/7896.jpg" onclick="openLightbox(this.src)">
+  <div class="title">7896 RC Schienen</div>
+  <div>Mit Anleitung</div>
+  <div class="price">Preis: 15 €</div>
+  <button onclick="sendMail('7896 RC Schienen')">Interesse anfragen</button>
+  <div class="email">oder direkt per Mail:<br><a href="mailto:info@steinchenfans.de">info@steinchenfans.de</a></div>
+</div>
+
+<!-- Set 2507 -->
+<div class="card" data-name="2507 Fire Temple Ninjago">
+  <img src="images/2507.jpg" onclick="openLightbox(this.src)">
+  <div class="title">2507 Fire Temple</div>
+  <div>Mit Anleitung</div>
+  <div class="price">Preis: 120 €</div>
+  <button onclick="sendMail('2507 Fire Temple')">Interesse anfragen</button>
+  <div class="email">oder direkt per Mail:<br><a href="mailto:info@steinchenfans.de">info@steinchenfans.de</a></div>
+</div>
+
+<!-- Set 60160 -->
+<div class="card" data-name="60160 Jungle Mobile Lab City">
+  <img src="images/60160.jpg" onclick="openLightbox(this.src)">
+  <div class="title">60160 Jungle Mobile Lab</div>
+  <div>Mit Anleitung</div>
+  <div class="price">Preis: 30 €</div>
+  <button onclick="sendMail('60160 Jungle Mobile Lab')">Interesse anfragen</button>
+  <div class="email">oder direkt per Mail:<br><a href="mailto:info@steinchenfans.de">info@steinchenfans.de</a></div>
+</div>
+
+<!-- Set 5893 -->
+<div class="card" data-name="5893 Off Road Power Creator">
+  <img src="images/5893.jpg" onclick="openLightbox(this.src)">
+  <div class="title">5893 Off Road Power</div>
+  <div>Mit Anleitung</div>
+  <div class="price">Preis: 30 €</div>
+  <button onclick="sendMail('5893 Off Road Power')">Interesse anfragen</button>
+  <div class="email">oder direkt per Mail:<br><a href="mailto:info@steinchenfans.de">info@steinchenfans.de</a></div>
+</div>
+
+<!-- Set 31012 -->
+<div class="card" data-name="31012 Family House Creator">
+  <img src="images/31012.jpg" onclick="openLightbox(this.src)">
+  <div class="title">31012 Familienhaus</div>
+  <div>Mit Anleitung</div>
+  <div class="price">Preis: 30 €</div>
+  <button onclick="sendMail('31012 Familienhaus')">Interesse anfragen</button>
+  <div class="email">oder direkt per Mail:<br><a href="mailto:info@steinchenfans.de">info@steinchenfans.de</a></div>
+</div>
+
+<!-- Set 8475 -->
+<div class="card" data-name="8475 RC Race Buggy Technic">
+  <img src="images/8475.jpg" onclick="openLightbox(this.src)">
+  <div class="title">8475 RC Race Buggy</div>
+  <div>Mit Anleitung</div>
+  <div class="price">Preis: 90 €</div>
+  <button onclick="sendMail('8475 RC Race Buggy')">Interesse anfragen</button>
+  <div class="email">oder direkt per Mail:<br><a href="mailto:info@steinchenfans.de">info@steinchenfans.de</a></div>
+</div>
+
+</div>
+
+<!-- 🔥 LIGHTBOX ELEMENT -->
+<div id="lightbox" class="lightbox">
+  <span class="close" onclick="closeLightbox()">&times;</span>
+  <img id="lightbox-img">
+</div>
+
+<script>
+function sendMail(setName) {
+  const subject = encodeURIComponent("Interesse an " + setName);
+  const body = encodeURIComponent(
+    "Hallo,\n\nich habe Interesse an folgendem Set:\n" +
+    setName +
+    "\n\nBitte sende mir weitere Informationen.\n\nViele Grüße"
+  );
+
+  window.location.href = "mailto:info@steinchenfans.de?subject=" + subject + "&body=" + body;
+}
+
+/* 🔥 Suche */
+document.getElementById("search").addEventListener("keyup", function() {
+  let filter = this.value.toLowerCase();
+  let cards = document.querySelectorAll(".card");
+
+  cards.forEach(card => {
+    let name = card.getAttribute("data-name").toLowerCase();
+    card.style.display = name.includes(filter) ? "block" : "none";
+  });
+});
+
+/* 🔥 Lightbox Funktionen */
+function openLightbox(src) {
+  document.getElementById("lightbox").style.display = "flex";
+  document.getElementById("lightbox-img").src = src;
+}
+
+function closeLightbox() {
+  document.getElementById("lightbox").style.display = "none";
+}
+</script>
+
+</body>
+</html>
