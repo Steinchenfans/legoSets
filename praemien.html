@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Steinchenfans – Prämien</title>
+
+<style>
+body {
+  font-family: Arial;
+  background: #f5f5f5;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+button {
+  margin-top: 10px;
+  padding: 10px;
+  background: #2e7d32;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.lightbox {
+  display:none;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.8);
+  justify-content:center;
+  align-items:center;
+}
+
+.lightbox img {
+  max-width:90%;
+  max-height:90%;
+}
+
+.close {
+  position:absolute;
+  top:20px;
+  right:30px;
+  color:white;
+  font-size:30px;
+  cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<h1>🎁 Wähle deine Prämie zur Mitgliedschaft</h1>
+
+<div class="grid">
+
+<!-- Prämie 1 -->
+<div class="card">
+  <img src="images/75105.jpg" onclick="openLightbox(this.src)">
+  <h3>Millennium Falcon</h3>
+  <p>exklusive Mitgliederprämie</p>
+
+  <button onclick="sendMail('Millennium Falcon')">
+    Prämie auswählen
+  </button>
+</div>
+
+<!-- Prämie 2 -->
+<div class="card">
+  <img src="images/6378.jpg" onclick="openLightbox(this.src)">
+  <h3>Tankstelle</h3>
+  <p>exklusive Mitgliederprämie</p>
+
+  <button onclick="sendMail('Tankstelle 6378')">
+    Prämie auswählen
+  </button>
+</div>
+
+<!-- Prämie 3 -->
+<div class="card">
+  <img src="images/31012.jpg" onclick="openLightbox(this.src)">
+  <h3>Familienhaus</h3>
+  <p>exklusive Mitgliederprämie</p>
+
+  <button onclick="sendMail('Familienhaus 31012')">
+    Prämie auswählen
+  </button>
+</div>
+
+</div>
+
+<!-- Lightbox -->
+<div id="lightbox" class="lightbox">
+  <span class="close" onclick="closeLightbox()">&times;</span>
+  <img id="lightbox-img">
+</div>
+
+<script>
+function sendMail(praemie) {
+  const subject = encodeURIComponent("Mitgliedschaft verlängern – Prämie gewählt");
+  const body = encodeURIComponent(
+    "Hallo Steinchenfans Team,\n\n" +
+    "ich möchte meine Mitgliedschaft verlängern.\n\n" +
+    "Ich wähle folgende Prämie:\n" +
+    praemie +
+    "\n\nBitte sendet mir die Zahlungsinformationen.\n\n" +
+    "Name:\nMitgliedsnummer (falls vorhanden):\n\nViele Grüße"
+  );
+
+  window.location.href = "mailto:info@steinchenfans.de?subject=" + subject + "&body=" + body;
+}
+
+function openLightbox(src) {
+  document.getElementById("lightbox").style.display = "flex";
+  document.getElementById("lightbox-img").src = src;
+}
+
+function closeLightbox() {
+  document.getElementById("lightbox").style.display = "none";
+}
+</script>
+
+</body>
+</html>
